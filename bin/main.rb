@@ -25,15 +25,10 @@ puts 'Hello world!'
   # Display the grid 
   #puts "#{player_two} please give us your input"
   # input_player_two =  get.chomp
+require '../lib/player.rb'
+require '../lib/validations.rb'
+include MyValidations
 
-def checks_input
-  var = gets.chomp
-  while !yield(var)
-    puts "Please enter a valid option"
-    var = gets.chomp
-  end
-  var
-end
 
 puts "Welcome to tic-tac-toe game..."
 puts "Please choose one of the following options : Select 1 to start a new game, Select 2 to Quit"
@@ -41,12 +36,11 @@ option = checks_input{|option| option == ("1" || "2")}
 
 if option.to_i == 1
   puts"Please enter the name of player one"
-  player_one = checks_input {|player_one| player_one != ""}
+  player_one = Player.new()
   
   puts"Please enter the name of player two"
-  player_two = checks_input {|player_two| player_two != ""}
+  player_two = Player.new()
   
 else 
   puts "Thanks for playing Bye!!"
 end
-
