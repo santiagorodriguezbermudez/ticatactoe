@@ -57,16 +57,17 @@ if option.to_i == 1
     # Update board
     board[current_player_selected_move.to_i - 1] = 'x' if player_current == player_one
     board[current_player_selected_move.to_i - 1] = 'o' if player_current == player_two
-    
+
     game.update(board)
 
   end
 
   #View end result either if it is a draw or a win by the current player
   puts '----------GAME ENDED--------------'
-  puts "#{game.result}."
-
-
+  print_board(game.available_moves)
+  puts '----------FINAL RESULT--------------'
+  game.result ? (puts "#{game.result.name} is the winner!"): (puts "It is a tie")
+  
 else 
   puts "Thanks for playing Bye!!"
 end
