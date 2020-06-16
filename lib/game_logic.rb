@@ -1,6 +1,6 @@
 class GameLogic
 
-  attr_reader :player_one, :player_two
+  attr_reader :player_one, :player_two, :result
   attr_accessor :current_player, :available_moves
 
   def initialize (player_one, player_two)
@@ -8,50 +8,31 @@ class GameLogic
     @player_two = player_two
     @current_player = player_one
     @available_moves = [1,2,3,4,5,6,7,8,9]
+    @result = nil
   end
 
   def finished?
-    if self.result?
-      true
-    else 
-      false
-    end
+    return false until self.result
+    true
   end
 
-  def result?
-    
-  
-  end
-
-
-  def valid_move?(move)
-    available_moves.include?(move)
-  end
-
-  def current_board
-    puts "Example of how the borad will look like"
-  end
-
-  def update(current_move)
+  def update(board)
     if self.current_player == self.player_one
       self.current_player = self.player_two
     else
       self.current_player = self.player_one
     end
+
+    self.evaluate_result(board)
   end
 
-  def result 
-    "#{self.player_one} Is the winner!!!"
+  protected
+  #Returns the winner or if its a Tie
+  def evaluate_result(board)
+  
+  
+  
+  
   end
-
-  def update_board(player, move)
-    if player == self.player_one
-      self.available_moves[move-1] = "x"
-    else
-      self.available_moves[move-1] = "o"
-    end
-    self.available_moves
-  end
-
 
 end

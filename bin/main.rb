@@ -30,34 +30,40 @@ if option.to_i == 1
   player_two = Player.new()
   
   #start Game
-  game = Game.new(player_one.name, player_two.name)
+  game = GameLogic.new(player_one, player_two)
   
-  while game.finished?
+  until game.finished?
     
     player_current = game.current_player
-    available_moves = game.available_moves
+    board = game.available_moves
 
-    #Players turn instruction
+    # Players turn instruction
+    puts '------------------------'
     puts "#{player_current.name} It is your turn."
-
-    print_board(available_moves)
-
-    puts "Please input your move. Type the number from these moves available: #{available_moves}"
+    puts '------------------------'
+    print_board(board)
+    puts '------------------------'
+    available_moves = board.select { |el| (el.is_a? Numeric) }
+    puts "#{player_current.name} Please input your move. Type the number from these moves available: #{available_moves}"
 
     current_player_selected_move = gets.chomp.to_i
     
-    while game.valid_move?(current_player_selected_move)
-      puts = "Please provide a valid move. You have these moves available: #{available_moves}"
+    until available_moves.include?(current_player_selected_move.to_i)
+      puts '------------------------'
+      puts "INVALID MOVE: Please provide a valid move. You have these moves available: #{available_moves}"
       current_player_selected_move = gets.chomp
     end
 
-    print_board(game.update_board(player_current, current_player_selected_move))
+    # Update board
+    board[current_player_selected_move.to_i - 1] = 'x' if player_current == player_one
+    board[current_player_selected_move.to_i - 1] = 'o' if player_current == player_two
     
-    game.update(current_player_selected_move)
+    game.update(board)
 
   end
 
   #View end result either if it is a draw or a win by the current player
+  puts '----------GAME ENDED--------------'
   puts "#{game.result}."
 
 
