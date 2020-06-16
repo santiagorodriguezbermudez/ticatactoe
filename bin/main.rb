@@ -1,37 +1,5 @@
 #!/usr/bin/env ruby
 
-#What do we need from each player
-    # name of player for identification
-    # players input
-    #launch or end or play another  game
-
-#what do you need to display for player?
-  #Lauch the game
-    #puts "Helo How are you?  Welcome to tictactoe Game"
-    #Please choose the following options:
-    #1 New game
-    #2 Quit
-  # if new Option 1
-  #loop
-  #Please enter the name of player one
-  # player_one = get.chomp
-  #Please enter the name of player two
-  # player_two = get.chomp
-  # Display the grid 
-  #puts "#{player_one} please give us your input"
-  # input_player_one =  get.chomp
-  # Display the grid 
-  #puts "#{player_two} please give us your input"
-  # input_player_two =  get.chomp
-
-  # [OPTIONAL] game asks players for their names Checked
-  # [REQUIRED] game tells which player turn it is Checked
-  # [REQUIRED] game asks the player to select from available moves Checked 
-  # [REQUIRED] game informs player if the selected move is invalid Checked
-  # [REQUIRED] game displays board after the player move Checked
-  # [REQUIRED] game informs player if the selected move is a winning move Checked 
-  # [REQUIRED] game informs player if the selected move is a draw move Checked
-  # [REQUIRED] game repeats all actions for the next player’s move
 
 # Game begins
 puts "Welcome to tic-tac-toe game..."
