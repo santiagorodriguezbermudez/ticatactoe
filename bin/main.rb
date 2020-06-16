@@ -1,6 +1,12 @@
 #!/usr/bin/env ruby
 
-
+def print_board(arr)
+  puts "#{arr[0]} | #{arr[1]} | #{arr[2]}"
+  puts "..|...|.."
+  puts "#{arr[3]} | #{arr[4]} | #{arr[5]}"
+  puts "..|...|.."
+  puts "#{arr[6]} | #{arr[7]} | #{arr[8]}"
+end
 # Game begins
 puts "Welcome to tic-tac-toe game..."
 puts "Please choose one of the following options: Select 1 to start a new game, Select 2 to quit"
@@ -27,8 +33,10 @@ if option.to_i == 1
 
     #Players turn instruction
     puts "#{player_current} It is your turn."
+    print_board(available_moves)
     puts "Please input your move. You have these moves available: #{available_moves}"
     current_player_selected_move = gets.chomp
+    available_moves[current_player_selected_move.to_i-1] = "X"
     game_invalid_move = true
 
     while game_invalid_move
@@ -38,6 +46,7 @@ if option.to_i == 1
     end
 
     puts "This is the current state of the Board: "
+    print_board(available_moves)
     
     game_not_finished = false
 
