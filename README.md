@@ -5,7 +5,7 @@
 Creating a Tic Tac Toe for learning how Object Oriented Programming works on Ruby
 
 ## Getting Started
-According to Wikipedia, Tic Tac Toe is a game for two players, who take turn by marking spaces in a 3 x 3 grid. The player that succeedss in marking consecutive cells either on the same column, row or diagonal will win. 
+According to Wikipedia, Tic Tac Toe is a game for two players, who take turn by marking spaces in a 3 x 3 grid. The player that succeeds in marking consecutive cells either on the same column, row or diagonal will win. 
 
 "Games played on three-in-a-row boards can be traced back to ancient Egypt,[5] where such game boards have been found on roofing tiles dating from around 1300 BCE.[6]
 
@@ -22,16 +22,11 @@ Follow the ste-by-step guide:
   6. Repeat 4 and 5 for the second player. 
   7. Start your game.
   8. Each turn you'll see the board like this:
-  <img width="83" alt="Screen Shot 2020-06-17 at 5 42 14 PM" src="https://user-images.githubusercontent.com/5817056/84958008-073fff00-b0c2-11ea-887c-dfb7bf0e97ce.png">
-
+    <img width="83" alt="Screen Shot 2020-06-17 at 5 42 14 PM" src="https://user-images.githubusercontent.com/5817056/84958008-073fff00-b0c2-11ea-887c-dfb7bf0e97ce.png">
      a. The player at turn will mark the position by typing a number between 1 to 9. 
      b. Afterwards, the grid will be updated:
     example: Player One marked "X" for the 1st space. 
-      X | 2 | 3
-      ..|...|..
-      4 | 5 | 6
-      ..|...|..
-      7 | 8 | 9    
+    <img width="77" alt="Screen Shot 2020-06-17 at 5 44 55 PM" src="https://user-images.githubusercontent.com/5817056/84958163-600f9780-b0c2-11ea-854a-51b5ce6828b4.png">   
       c. Continue, until one player wins or until there is no more empty spaces on the grid. 
 
   9. If you want to start over. Input bin/main.rb and start over. 
@@ -44,27 +39,18 @@ Follow the ste-by-step guide:
 
 ## When do we get a tie?
   When the grid does not have any empty spaces left and no player has achieved any winning pattern. 
-      X | O | X
-      ..|...|..
-      X | O | O
-      ..|...|..
-      O | X | O  
+  <img width="78" alt="Screen Shot 2020-06-17 at 5 46 13 PM" src="https://user-images.githubusercontent.com/5817056/84958190-7158a400-b0c2-11ea-8542-a850b58bacd8.png">
 
 
-## About the Project
-
+# About the Project
 ## Built With
-
 - Ruby
 
 ## Authors
-
 👤 Jocyline Magero
-
 - Github: [@Jmagero](https://github.com/Jmagero)
 
 👤 Santiago Rodriguez
-
 - Github: [@srba87](https://github.com/srba87)
 - Twitter: [@srba87](https://twitter.com/srba87)
 - Linkedin: [srba87](https://linkedin.com/srba87)
