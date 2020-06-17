@@ -5,7 +5,6 @@ class Player
   attr_writer :score
   def initialize()
     @name = checks_input {|name| name != ""}
-    @score = 0
   end
 end
 

@@ -45,7 +45,7 @@ if option.to_i == 1
     puts '------------------------'
     available_moves = board.select { |el| (el.is_a? Numeric) }
     puts "#{player_current.name} Please input your move. Type the number from these moves available: #{available_moves}"
-
+    
     current_player_selected_move = gets.chomp.to_i
     
     until available_moves.include?(current_player_selected_move.to_i)
@@ -66,7 +66,7 @@ if option.to_i == 1
   puts '----------GAME ENDED--------------'
   print_board(game.available_moves)
   puts '----------FINAL RESULT--------------'
-  game.result ? (puts "#{game.result.name} is the winner!"): (puts "It is a tie")
+  game.winner ? (puts "#{game.winner.name} is the winner!"): (puts "It is a tie")
   
 else 
   puts "Thanks for playing Bye!!"
