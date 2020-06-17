@@ -16,7 +16,9 @@ class GameLogic
     true
   end
 
-  def update(board)
+  def update(board,current_player_selected_move)
+    board[current_player_selected_move.to_i - 1] = self.player_one.symbol if self.player_current == self.player_one
+    board[current_player_selected_move.to_i - 1] = self.player_two.symbol if self.player_current == self.player_two
     if self.current_player == self.player_one
       self.current_player = self.player_two
     else
@@ -34,22 +36,22 @@ class GameLogic
     #check rows
     i=0 
     3.times do 
-      self.winner = self.player_two if (board[i] == "o" && (board[i+1] == "o" && board[i+2] == "o"))
-      self.winner = self.player_one if (board[i] == "x" && (board[i+1] == "x" && board[i+2] == "x"))
+      self.winner = self.player_two if (board[i] == self.player_two.symbol && (board[i+1] == self.player_two.symbol && board[i+2] == self.player_two.symbol ))
+      self.winner = self.player_one if (board[i] == self.player_one.symbol && (board[i+1] == self.player_one.symbol && board[i+2] == self.player_one.symbol))
       i +=3
     end
     #check columns
     i=0 
     3.times do 
-      self.winner = self.player_one if (board[i] == "x" && (board[i+3] == "x" && board[i+6] == "x"))
-      self.winner = self.player_two if (board[i] == "o" && (board[i+3] == "o" && board[i+6] == "o"))
+      self.winner = self.player_one if (board[i] == self.player_one.symbol && (board[i+3] == self.player_one.symbol && board[i+6] == self.player_one.symbol))
+      self.winner = self.player_two if (board[i] == self.player_two.symbol && (board[i+3] == self.player_two.symbol && board[i+6] == self.player_two.symbol))
       i +=1
     end
     #check diagonals
-    self.winner = self.player_one if (board[0] == "x" && (board[4] == "x" && board[8] == "x"))
-    self.winner = self.player_two if (board[0] == "o" && (board[4] == "o" && board[8] == "o"))
-    self.winner = self.player_one if (board[2] == "x" && (board[4] == "x" && board[6] == "x"))
-    self.winner = self.player_two if (board[2] == "o" && (board[4] == "o" && board[6] == "o"))
+    self.winner = self.player_one if (board[0] == self.player_one.symbol && (board[4] == self.player_one.symbol && board[8] == self.player_one.symbol))
+    self.winner = self.player_two if (board[0] == self.player_two.symbol && (board[4] == self.player_two.symbolo && board[8] == self.player_two.symbol))
+    self.winner = self.player_one if (board[2] == self.player_one.symbol && (board[4] == self.player_one.symbol && board[6] == self.player_one.symbol))
+    self.winner = self.player_two if (board[2] == self.player_two.symbol && (board[4] == self.player_two.symbol && board[6] == self.player_two.symbol))
     
   end
 end

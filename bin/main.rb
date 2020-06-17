@@ -79,10 +79,7 @@ if option.to_i == 1
     end
 
     # Update board
-    board[current_player_selected_move.to_i - 1] = 'x' if player_current == player_one
-    board[current_player_selected_move.to_i - 1] = 'o' if player_current == player_two
-
-    game.update(board)
+    game.update(board,current_player_selected_move)
 
   end
 
