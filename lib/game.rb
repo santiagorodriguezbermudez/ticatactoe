@@ -15,10 +15,9 @@ class Game
   end
 
   def update(current_player_selected_move)
-    available_moves[current_player_selected_move.to_i - 1] = player_one.symbol if current_player == player_one
-    available_moves[current_player_selected_move.to_i - 1] = player_two.symbol if current_player == player_two
-    self.current_player = current_player === player_one ? player_two : player_one
+    available_moves[current_player_selected_move.to_i - 1] = current_player.symbol
     evaluate_result
+    self.current_player = current_player === player_one ? player_two : player_one
   end
 
   protected
@@ -29,20 +28,17 @@ class Game
 
     i = 0
     3.times do
-      self.winner = player_two if available_moves[i] === player_two.symbol && (available_moves[i + 1] === player_two.symbol && available_moves[i + 2] === player_two.symbol)
-      self.winner = player_one if available_moves[i] === player_one.symbol && (available_moves[i + 1] === player_one.symbol && available_moves[i + 2] === player_one.symbol)
+      self.winner = current_player if available_moves[i] === current_player.symbol && (available_moves[i + 1] === current_player.symbol && available_moves[i + 2] === current_player.symbol)
       i += 3
     end
     # check columns
     i = 0
     3.times do
-      self.winner = player_one if available_moves[i] === player_one.symbol && (available_moves[i + 3] === player_one.symbol && available_moves[i + 6] === player_one.symbol)
-      self.winner = player_two if available_moves[i] === player_two.symbol && (available_moves[i + 3] === player_two.symbol && available_moves[i + 6] === player_two.symbol)
+      self.winner = current_player if available_moves[i] === current_player.symbol && (available_moves[i + 3] === current_player.symbol && available_moves[i + 6] === current_player.symbol)
       i += 1
     end
     # check diagonals
-    self.winner = player_one if available_moves[0] === player_one.symbol && (available_moves[4] === player_one.symbol && available_moves[8] === player_one.symbol)
-    self.winner = player_two if available_moves[0] === player_two.symbol && (available_moves[4] === player_two.symbol && available_moves[8] === player_one.symbol)
-    self.winner = player_two if available_moves[2] === player_two.symbol && (available_moves[4] === player_two.symbol && available_moves[6] === player_two.symbol)
+    self.winner = current_player if available_moves[0] === current_player.symbol && (available_moves[4] === current_player.symbol && available_moves[8] === current_player.symbol)
+    self.winner = current_player if available_moves[2] === current_player.symbol && (available_moves[4] === current_player.symbol && available_moves[6] === current_player.symbol)
   end
 end
