@@ -22,10 +22,10 @@ Follow the ste-by-step guide:
   6. Repeat 4 and 5 for the second player. 
   7. Start your game.
   8. Each turn you'll see the board like this:
-    <img width="83" alt="Screen Shot 2020-06-17 at 5 42 14 PM" src="https://user-images.githubusercontent.com/5817056/84958008-073fff00-b0c2-11ea-887c-dfb7bf0e97ce.png">
-     a. The player at turn will mark the position by typing a number between 1 to 9. 
-     b. Afterwards, the grid will be updated:
-    example: Player One marked "X" for the 1st space. 
+    <img width="83" alt="Screen Shot 2020-06-17 at 5 42 14 PM" src="https://user-images.githubusercontent.com/5817056/84958008-073fff00-b0c2-11ea-887c-dfb7bf0e97ce.png"><br>
+     a. The player at turn will mark the position by typing a number between 1 to 9. <br>
+     b. Afterwards, the grid will be updated:<br> 
+    example: Player One marked "X" for the 1st space.<br> 
     <img width="77" alt="Screen Shot 2020-06-17 at 5 44 55 PM" src="https://user-images.githubusercontent.com/5817056/84958163-600f9780-b0c2-11ea-854a-51b5ce6828b4.png">   
       c. Continue, until one player wins or until there is no more empty spaces on the grid. 
 
