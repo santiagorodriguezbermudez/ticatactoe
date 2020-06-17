@@ -22,11 +22,8 @@ Follow the ste-by-step guide:
   6. Repeat 4 and 5 for the second player. 
   7. Start your game.
   8. Each turn you'll see the board like this:
-      1 | 2 | 3
-      ..|...|..
-      4 | 5 | 6
-      ..|...|..
-      7 | 8 | 9
+  <img width="83" alt="Screen Shot 2020-06-17 at 5 42 14 PM" src="https://user-images.githubusercontent.com/5817056/84958008-073fff00-b0c2-11ea-887c-dfb7bf0e97ce.png">
+
      a. The player at turn will mark the position by typing a number between 1 to 9. 
      b. Afterwards, the grid will be updated:
     example: Player One marked "X" for the 1st space. 
