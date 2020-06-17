@@ -1,5 +1,5 @@
 class Game
-  attr_reader :player_one, :player_two, :available_moves
+  attr_reader :player_one, :player_two, :available_moves, :winning_patterns_index
   attr_accessor :current_player, :winner
   def initialize(player_one, player_two)
     @player_one = player_one
@@ -7,6 +7,7 @@ class Game
     @current_player = player_one
     @available_moves = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     @winner = nil
+    @winning_patterns_index = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
   end
 
   def finished?
@@ -24,21 +25,8 @@ class Game
 
   # Returns the winner or if its a Tie
   def evaluate_result
-    # check rows
-
-    i = 0
-    3.times do
-      self.winner = current_player if available_moves[i] === current_player.symbol && (available_moves[i + 1] === current_player.symbol && available_moves[i + 2] === current_player.symbol)
-      i += 3
+    winning_patterns_index.each do |pattern|
+      self.winner = current_player if pattern.all? { |index| available_moves[index] == current_player.symbol }
     end
-    # check columns
-    i = 0
-    3.times do
-      self.winner = current_player if available_moves[i] === current_player.symbol && (available_moves[i + 3] === current_player.symbol && available_moves[i + 6] === current_player.symbol)
-      i += 1
-    end
-    # check diagonals
-    self.winner = current_player if available_moves[0] === current_player.symbol && (available_moves[4] === current_player.symbol && available_moves[8] === current_player.symbol)
-    self.winner = current_player if available_moves[2] === current_player.symbol && (available_moves[4] === current_player.symbol && available_moves[6] === current_player.symbol)
   end
 end
