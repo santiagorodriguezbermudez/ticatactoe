@@ -13,21 +13,45 @@ require_relative '../lib/validations.rb'
 require_relative '../lib/game_logic.rb'
 include MyValidations
 
+def checks_input
+  var = gets.chomp
+  while !yield(var)
+    puts "Please enter a valid option"
+    var = gets.chomp
+  end
+  var
+end
 
 # Game begins
 puts "Welcome to tic-tac-toe game..."
 puts "Please choose one of the following options : Select 1 to start a new game, Select 2 to Quit"
 option = checks_input{|option| (option == "1" || "2")}
 
+symbol_arr = ['X','O','!','?','$']
+
 #Start New Game
 if option.to_i == 1
   
   #player input
-  puts"Please enter the name of player one"
-  player_one = Player.new()
+  puts 'Please enter the name of player one'
+  name = checks_input{|name| name != ""}
   
-  puts"Please enter the name of player two"
-  player_two = Player.new()
+  puts "Please enter your choice symbol: #{symbol_arr}"
+  symbol = checks_input{|symbol| symbol_arr.include?(symbol)}
+
+  symbol_arr.delete(symbol)
+
+  player_one = Player.new(name,symbol)
+  p player_one
+
+  puts 'Please enter the name of player two'
+  name = checks_input{|name| name != ""}
+
+  puts "Please enter your choice symbol: #{symbol_arr}"
+  symbol = checks_input{|symbol| symbol_arr.include?(symbol)}
+
+  player_two = Player.new(name,symbol)
+  p player_two
   
   #start Game
   game = GameLogic.new(player_one, player_two)
