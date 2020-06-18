@@ -1,6 +1,6 @@
-# Tic Tac Toe -> Bulding Ruby Apps
+# Tic Tac Toe -> Building Apps with OOP
 
-Creating a Tic Tac Toe for learning how Object Oriented Programming works on Ruby
+Creating a Tic Tac Toe for learning how Object Oriented Programming (OOP) works on Ruby
 
 ## Getting Started
 According to Wikipedia, Tic Tac Toe is a game for two players, who take turn by marking spaces in a 3 x 3 grid. The player that succeeds in marking consecutive cells either on the same column, row or diagonal will win. 
@@ -11,19 +11,19 @@ An early variation of tic-tac-toe was played in the Roman Empire, around the fir
 
 
 ## Instructions
-Follow the ste-by-step guide:
+Follow the step-by-step guide:
   1. Download the current project on your local machine
   2. Open your terminal
   3. Execute bin/main.rb on the project folder within your terminal
   4. Input your first player name (Can't be empty)
-  5. Choos your first player symbol. Select the Symbol you want the first player to markup the grid spaces. 
+  5. Choose your first player symbol. Select the Symbol you want the first player to markup the grid spaces. 
   6. Repeat 4 and 5 for the second player. 
   7. Start your game.
   8. Each turn you'll see the board like this:<br>
     <img width="83" alt="Screen Shot 2020-06-17 at 5 42 14 PM" src="https://user-images.githubusercontent.com/5817056/84958008-073fff00-b0c2-11ea-887c-dfb7bf0e97ce.png"><br>
     a. The player at turn will mark the position by typing a number between 1 to 9. <br>
     b. Afterwards, the grid will be updated:<br> 
-    example: Player One marked "X" for the 1st space.<br> 
+    For example: Player one marked "X" for the 1st space.<br> 
     <img width="77" alt="Screen Shot 2020-06-17 at 5 44 55 PM" src="https://user-images.githubusercontent.com/5817056/84958163-600f9780-b0c2-11ea-854a-51b5ce6828b4.png"> <br>  
     c. Continue, until one player wins or until there is no more empty spaces on the grid. 
 
@@ -43,40 +43,40 @@ Follow the ste-by-step guide:
 # About the Project
 
 ## Project specification
-This project is part of the Microverse program. The project consists of creating a Tic Tac Toe project using Ruby while commplying with 4 milestones:
+This project is part of the Microverse program. The project consists of creating a Tic Tac Toe project using Ruby while complying with 4 milestones:
 
 ### Milestone one -> Setting up 
 - [x] lib - for the game logic
 - [x] bin - with the called main.rb.
-- [x] bin - with the [executable file] https://commandercoriander.net/blog/2013/02/16/making-a-ruby-script-executable/) called main.rb.
+- [x] bin - with the executable file called main.rb.
 - [x] Deliverable: Make the main.rb file display 'hello world' on the terminal. 
 
 ### Milestone two -> Creating the user interface
 - [x] main.rb file should be responsible for user interaction.
 - [x] Display prompts, collect user input and only mock the basic flow of the game (you can use puts or inline comments to say for example “Now, your move is displayed on the board”).
 - [x] Make sure that you can run your game with your executable file and play with the basic flow.
-- [x] Deliverable: make sure that you thought about all actions needed to play Tic Tac Toe. It does not need to work yet - this will be done in the next milestone.
+- [x] Deliverable: A main.rb file that mimics how the board and the users will interact from the command line. It does not have to work yet. 
 
 ### Milestone three -> Creating the game logic
 - [x] Add real logic for your game - get rid of all inline comments and mocked logic used in previous milestone.
 - [x] To keep in mind that main.rb file is the only place to print or get input from the user. 
 - [x] Use DRY and SRP to code your logic. 
-- [x] Deliverable: Working game for two players. The game must output the game evolution and also declare the winner or if its a tie. 
+- [x] Deliverable: Working game for two players. The game must output the game evolution and also declare the winner or if it is a tie. 
 
 ### Milestone four -> Creating the game logic
 - [x] Document your game accordingly so that anyone can download it and play it. 
 
 ## Built With
-- Ruby
+- Ruby version 2.6.5
 
 ## Authors
 👤 Jocyline Magero
 - Github: [@Jmagero](https://github.com/Jmagero)
 
 👤 Santiago Rodriguez
-- Github: [@srba87](https://github.com/srba87)
+- Github: [@srba87](https://github.com/santiagorodriguezbermudez)
 - Twitter: [@srba87](https://twitter.com/srba87)
-- Linkedin: [srba87](https://linkedin.com/srba87)
+- Linkedin: [srba87](https://linkedin.com/in/srba87)
 
 ## 🤝 Contributing
 
