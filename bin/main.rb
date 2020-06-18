@@ -13,28 +13,33 @@ def player_symbol(symbol_arr)
   print 'Input value here: '
 end
 
+def recurring_input
+  variable = gets.chomp
+  until yield(variable)
+    print 'Invalid option. Please input again: '
+    variable = gets.chomp
+  end
+  variable
+end
+
 # Game begins
 puts 'Welcome to tic-tac-toe game...'
-
-# Start New Game
-# player input
 symbol_arr = ['X', 'O', '!', '?', '$']
+
+# player input
+# Creates player one
 player_name('player one')
-name = checks_input { |var| var != '' }
-
+name = recurring_input { |variable| variable != '' }
 player_symbol(symbol_arr)
-symbol = checks_input { |var| symbol_arr.include?(var.upcase) }
-
-symbol_arr.delete(symbol)
-
+symbol = recurring_input { |variable| symbol_arr.include?(variable.upcase) }
+symbol_arr.delete(symbol.upcase)
 player_one = Player.new(name, symbol)
 
+# Creates player two
 player_name('player two')
-name = checks_input { |var| var != '' }
-
+name = recurring_input { |variable| variable != '' }
 player_symbol(symbol_arr)
-symbol = checks_input { |var| symbol_arr.include?(var.upcase) }
-
+symbol = recurring_input { |variable| symbol_arr.include?(variable.upcase) }
 player_two = Player.new(name, symbol)
 
 # start Game
