@@ -1,23 +1,16 @@
 #!/usr/bin/env ruby
 require_relative '../lib/player.rb'
 require_relative '../lib/game.rb'
+require_relative '../lib/board.rb'
 
-def print_board(arr)
-  puts "#{arr[0]} | #{arr[1]} | #{arr[2]}"
-  puts '..|...|..'
-  puts "#{arr[3]} | #{arr[4]} | #{arr[5]}"
-  puts '..|...|..'
-  puts "#{arr[6]} | #{arr[7]} | #{arr[8]}"
+def player_name(player)
+  puts "Please enter the name of #{player}"
+  print 'Input value here: '
 end
 
-def checks_input
-  var = gets.chomp
-  until yield(var)
-    puts 'Please enter a valid option'
-    print 'Input value here: '
-    var = gets.chomp
-  end
-  var
+def player_symbol(symbol_arr)
+  puts "Please enter your choice symbol: #{symbol_arr}"
+  print 'Input value here: '
 end
 
 # Game begins
@@ -25,30 +18,28 @@ puts 'Welcome to tic-tac-toe game...'
 
 # Start New Game
 # player input
-puts 'Please enter the name of player one'
-print 'Input value here: '
-name = checks_input { |var| var != '' }
 symbol_arr = ['X', 'O', '!', '?', '$']
-puts "Please enter your choice symbol: #{symbol_arr}"
-print 'Input value here: '
-symbol = checks_input { |var| symbol_arr.include?(var) }
+player_name('player one')
+name = checks_input { |var| var != '' }
+
+player_symbol(symbol_arr)
+symbol = checks_input { |var| symbol_arr.include?(var.upcase) }
 
 symbol_arr.delete(symbol)
 
 player_one = Player.new(name, symbol)
 
-puts 'Please enter the name of player two'
-print 'Input value here: '
+player_name('player two')
 name = checks_input { |var| var != '' }
 
-puts "Please enter your choice symbol: #{symbol_arr}"
-print 'Input value here: '
-symbol = checks_input { |var| symbol_arr.include?(var) }
+player_symbol(symbol_arr)
+symbol = checks_input { |var| symbol_arr.include?(var.upcase) }
 
 player_two = Player.new(name, symbol)
 
 # start Game
 game = Game.new(player_one, player_two)
+board = Board.new
 
 until game.finished?
 
@@ -56,10 +47,10 @@ until game.finished?
   puts '------------------------'
   puts "#{game.current_player.name} It is your turn."
   puts '------------------------'
-  print_board(game.available_moves)
+  puts board.print_board(game.available_moves)
   puts '------------------------'
   available_moves = game.available_moves.select { |el| (el.is_a? Numeric) }
-  puts "#{game.current_player.name} Please input your move. Type the number from these moves available: #{available_moves}"
+  puts "#{game.current_player.name} Enter your move. Chose from the available moves: #{available_moves}"
   print 'Input value here: '
   current_player_selected_move = gets.chomp.to_i
 
@@ -77,6 +68,6 @@ end
 
 # View end result either if it is a draw or a win by the current player
 puts '----------GAME ENDED--------------'
-print_board(game.available_moves)
+puts board.print_board(game.available_moves)
 puts '----------FINAL RESULT--------------'
 game.winner ? (puts "#{game.winner.name} is the winner!") : (puts 'It is a tie')
