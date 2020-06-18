@@ -43,6 +43,24 @@ Follow the ste-by-step guide:
 
 
 # About the Project
+
+## Project specification
+This project is part of the Microverse program. The project consists of creating a Tic Tac Toe project using Ruby while commplying with 4 milestones:
+
+### Milestone one -> Setting up 
+[x] lib - for the game logic
+[x] bin - with the called main.rb.
+[x] bin - with the [executable file] https://commandercoriander.net/blog/2013/02/16/making-a-ruby-script-executable/) called main.rb.
+[x] Deliverable: Make the main.rb file display 'hello world' on the terminal. 
+
+### Milestone two -> Creating the user interface
+[x] main.rb file should be responsible for user interaction.
+[x] Display prompts, collect user input and only mock the basic flow of the game (you can use puts or inline comments to say for example “Now, your move is displayed on the board”).
+[x] Make sure that you can run your game with your executable file and play with the basic flow.
+[x] Deliverable: make sure that you thought about all actions needed to play Tic Tac Toe. It does not need to work yet - this will be done in the next milestone.
+
+### Milestone three -> Creating the game logic
+
 ## Built With
 - Ruby
 
