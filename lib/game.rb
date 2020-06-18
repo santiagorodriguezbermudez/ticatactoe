@@ -10,6 +10,7 @@ class Game
     @winning_patterns_index = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
   end
 
+  
   def finished?
     return false until winner || available_moves.none?(Numeric)
     true
@@ -18,7 +19,7 @@ class Game
   def update(current_player_selected_move)
     available_moves[current_player_selected_move.to_i - 1] = current_player.symbol
     evaluate_result
-    self.current_player = current_player === player_one ? player_two : player_one
+    self.current_player = current_player == player_one ? player_two : player_one
   end
 
   protected
