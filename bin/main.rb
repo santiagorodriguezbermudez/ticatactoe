@@ -1,74 +1,78 @@
 #!/usr/bin/env ruby
+require_relative '../lib/player.rb'
+require_relative '../lib/game.rb'
+require_relative '../lib/board.rb'
 
-def print_board(arr)
-  puts "#{arr[0]} | #{arr[1]} | #{arr[2]}"
-  puts '..|...|..'
-  puts "#{arr[3]} | #{arr[4]} | #{arr[5]}"
-  puts '..|...|..'
-  puts "#{arr[6]} | #{arr[7]} | #{arr[8]}"
+def player_name(player)
+  puts "Please enter the name of #{player}"
+  print 'Input value here: '
 end
 
-def evaluate_game
-  true
+def player_symbol(symbol_arr)
+  puts "Please enter your choice symbol: #{symbol_arr}"
+  print 'Input value here: '
 end
 
-def update_player(player)
-  player
+def recurring_input
+  variable = gets.chomp
+  until yield(variable)
+    print 'Invalid option. Please input again: '
+    variable = gets.chomp
+  end
+  variable
 end
 
 # Game begins
 puts 'Welcome to tic-tac-toe game...'
-puts 'Please choose one of the following options: Select 1 to start a new game, Select 2 to quit'
-option = gets.chomp
+symbol_arr = ['X', 'O', '!', '?', '$']
 
-# Start New Game
-if option.to_i == 1
+# player input
+# Creates player one
+player_name('player one')
+name = recurring_input { |variable| variable != '' }
+player_symbol(symbol_arr)
+symbol = recurring_input { |variable| symbol_arr.include?(variable.upcase) }
+symbol_arr.delete(symbol.upcase)
+player_one = Player.new(name, symbol)
 
-  # player input
-  puts 'Please enter the name of player one'
-  player_one = gets.chomp
+# Creates player two
+player_name('player two')
+name = recurring_input { |variable| variable != '' }
+player_symbol(symbol_arr)
+symbol = recurring_input { |variable| symbol_arr.include?(variable.upcase) }
+player_two = Player.new(name, symbol)
 
-  puts 'Please enter the name of player two'
-  player_two = gets.chomp
+# start Game
+game = Game.new(player_one, player_two)
+board = Board.new
 
-  # start Game
-  puts 'The game has begin'
-  game_not_finished = true
+until game.finished?
 
-  # Game variables
-  player_current = player_one
-  board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  # Players turn instruction
+  puts '------------------------'
+  puts "#{game.current_player.name} It is your turn."
+  puts '------------------------'
+  puts board.print_board(game.available_moves)
+  puts '------------------------'
+  available_moves = game.available_moves.select { |el| (el.is_a? Numeric) }
+  puts "#{game.current_player.name} Enter your move. Chose from the available moves: #{available_moves}"
+  print 'Input value here: '
+  current_player_selected_move = gets.chomp.to_i
 
-  while game_not_finished
-
-    # Players turn instruction
+  until available_moves.include?(current_player_selected_move.to_i)
     puts '------------------------'
-    puts "#{player_current} It is your turn."
-    print_board(board)
-
-    available_moves = board.select { |el| (el.is_a? Numeric) }
-
-    puts "Please input your move. You have these moves available: #{available_moves}"
+    puts "INVALID MOVE: Please provide a valid move. You have these moves available: #{available_moves}"
+    print 'Input value here: '
     current_player_selected_move = gets.chomp
-
-    until available_moves.include?(current_player_selected_move.to_i)
-      puts "Please provide a valid move. You have these moves available: #{available_moves}"
-      current_player_selected_move = gets.chomp
-    end
-
-    # Update board
-    board[current_player_selected_move.to_i - 1] = 'x' if player_current == player_one
-    board[current_player_selected_move.to_i - 1] = 'o' if player_current == player_two
-
-    # Change current player
-    current_player = update_player(current_player)
-
-    # NOT IMPLEMENTED YET -> Evaluates the result of the game after the turn has ended
-    game_not_finished = evaluate_game
-    puts "#{player_one} has won" unless game_not_finished
-
   end
 
-else
-  puts 'Thanks for playing Bye!!'
+  # Update board
+  game.update(current_player_selected_move)
+
 end
+
+# View end result either if it is a draw or a win by the current player
+puts '----------GAME ENDED--------------'
+puts board.print_board(game.available_moves)
+puts '----------FINAL RESULT--------------'
+game.winner ? (puts "#{game.winner.name} is the winner!") : (puts 'It is a tie')
