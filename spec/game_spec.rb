@@ -134,7 +134,7 @@ describe Board do
   let(:new_board) { Board.new }
 
   describe '#print_board' do
-    it 'prit board will return the board as a string with the values applied according to the parameter given' do
+    it 'Print board will return the board as a string with the values applied according to the parameter given' do
       expect(new_board.print_board(['X', 'O', 3, 4, 5, 6, 7, 8, 9])).to eql("    X | O | 3\n    ..|...|..
     4 | 5 | 6\n    ..|...|..
     7 | 8 | 9")
