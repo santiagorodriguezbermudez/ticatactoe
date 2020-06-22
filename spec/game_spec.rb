@@ -88,7 +88,7 @@ describe Game do
       expect(new_game.winner).to eql(player_one)
     end
 
-    it 'Neither player wins' do
+    it 'Neither player wins and the result is a Tie' do
       new_game.update(1)
       new_game.update(2)
       new_game.update(3)
