@@ -69,6 +69,13 @@ This project is part of the Microverse program. The project consists of creating
 ## Built With
 - Ruby version 2.6.5
 
+## How to run tests:
+- Copy the SSH or HTTP link from this repository
+- Download this repository locally.
+- Install Rspec using gem: run gem install rspec on your terminal.
+- Run "rspec" on your command line to check your tests outcome.
+- Check out the methods that has passed the tests. If you want to get the documentation of every test case you can run the follow command "rspec --format documentation"
+
 ## Authors
 👤 Jocyline Magero
 - Github: [@Jmagero](https://github.com/Jmagero)
@@ -77,6 +84,12 @@ This project is part of the Microverse program. The project consists of creating
 - Github: [@srba87](https://github.com/santiagorodriguezbermudez)
 - Twitter: [@srba87](https://twitter.com/srba87)
 - Linkedin: [srba87](https://linkedin.com/in/srba87)
+
+👤 Emilio Contreras
+
+- Github: [@emiliocm9](https://github.com/emiliocm9)
+- Twitter: [@emiliocm31](https://twitter.com/emiliocm31)
+- Email: [email](emilio.contreras97@gmail.com)
 
 ## 🤝 Contributing
 
