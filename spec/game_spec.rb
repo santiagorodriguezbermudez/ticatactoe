@@ -1,5 +1,6 @@
 require './lib/game'
 require './lib/player'
+require './lib/board'
 
 describe Game do
   let(:player_one) { Player.new('Santiago', 'X') }
@@ -98,6 +99,45 @@ describe Game do
       new_game.update(7)
       new_game.update(8)
       expect(new_game.winner).to eql(nil)
+    end
+
+    describe '#update' do
+      it 'Update will apply the player symbols on the board according to the position given' do
+        new_game.update(4)
+        expect(new_game.available_moves[3]).to eql(player_one.symbol)
+      end
+    end
+
+    describe '#finished?' do
+      it 'Finished? will return false if the game has not finished' do
+        new_game.update(1)
+        new_game.update(2)
+        new_game.update(3)
+        new_game.update(4)
+        new_game.update(5)
+        expect(new_game.finished?).to eql(false)
+      end
+
+      it 'Finished? will return true if the has ended with a winner or a tie' do
+        new_game.update(7)
+        new_game.update(3)
+        new_game.update(8)
+        new_game.update(4)
+        new_game.update(9)
+        expect(new_game.finished?).to eql(true)
+      end
+    end
+  end
+end
+
+describe Board do
+  let(:new_board) { Board.new }
+
+  describe '#print_board' do
+    it 'prit board will return the board as a string with the values applied according to the parameter given' do
+      expect(new_board.print_board(['X', 'O', 3, 4, 5, 6, 7, 8, 9])).to eql("    X | O | 3\n    ..|...|..
+    4 | 5 | 6\n    ..|...|..
+    7 | 8 | 9")
     end
   end
 end
